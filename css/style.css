@@ -1,0 +1,158 @@
+/* Environment Variables */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary: #072ac8;
+    --primaryLight: #a2d6f9;
+    --primaryLighter: #d1edff;
+    --neutralMedium: #6b708d;
+    --white: #fff;
+    --black: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #e5e5e5;
+    min-height: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 20px;
+    color: var(--neutralMedium);
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+.nav-bar {
+    margin: 20px auto;
+    text-align: center;
+}
+
+li {
+    margin: 20px auto;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--neutralMedium);
+    font-weight: bold;
+}
+
+li a:visited {
+    color: var(--primaryLight);
+}
+
+li a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-color: #072ac8;
+    text-underline-offset: 8px;
+}
+
+.contact {
+    margin-top: 40px;
+    color: var(--white)
+}
+
+.btn {
+    background-color: var(--primary);
+    color: var(--white);
+    display: inline;
+    margin-top: 30px;
+}
+
+.btn a {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 15px;
+    font-weight: normal;
+}
+
+.btn a:visited {
+    color: var(--white);
+}
+
+.btn a:hover {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.content {
+    margin: 30px auto;
+}
+
+.hero {
+    margin: 60px auto;
+    max-width: 85%;
+}
+
+.hero ul a {
+    margin: 10px;
+    padding: 15px;
+}
+
+.hero ul a.btn {
+    font-weight: normal;
+}
+
+.hero ul a.btn:hover {
+    font-weight: bold;
+}
+
+.img-hero {
+    width: 500px;
+    max-width: 90%;
+}
+
+.img-card {
+    width: 200px;
+    max-width: 40%;
+    position: relative;
+    z-index: 1;
+    top: -400px;
+    left: -25px;
+    background-color: rgba(0,0,0,0);
+}
+
+.img-card2 {
+    top: -150px;
+    left: 80px;
+}
+
+@media (min-width: 520px) {
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 90%;
+    }
+
+    .nav-bar ul {
+        display: flex;
+        gap: 50px;
+        margin: 0;
+    }
+
+    ul.contact {
+        display: flex;
+        align-items: center;
+    }
+}
