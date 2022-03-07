@@ -7,6 +7,7 @@
   --primaryLighter: #d1edff;
   --secondaryLight: #fce300;
   --secondaryDark: #ffc600;
+  --neutralLight: #f4f6fc;
   --neutralMedium: #6b708d;
   --neutralDark: #292e47;
   --white: #fff;
@@ -137,7 +138,7 @@ li a:hover {
   max-width: 150px;
   position: absolute;
   top: 0%;
-  left: -5%;
+  left: -10%;
   right: auto;
   bottom: auto;
   background-color: rgba(0, 0, 0, 0);
@@ -147,7 +148,7 @@ li a:hover {
 .img-card2 {
   top: auto;
   left: auto;
-  right: -20%;
+  right: -25%;
   bottom: -15%;
 }
 
@@ -309,7 +310,7 @@ li a:hover {
 }
 
 .services h2 {
-  margin: 40px 30px;
+  margin: 30px;
   text-align: left;
 }
 
@@ -333,6 +334,12 @@ li a:hover {
   border-radius: 50%;
   padding: 10px;
   margin: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.img-services img {
+  background-color: var(--primaryLighter);
 }
 
 .cta {
@@ -380,6 +387,92 @@ li a:hover {
   margin: 20px auto;
 }
 
+.footer p,
+.footer a {
+  color: var(--neutralMedium);
+  font-weight: normal;
+}
+
+.main-article {
+  margin: 20px;
+  padding: 10px;
+}
+
+.main-article img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.main-article h1 {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.article-subtitle h4 {
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--neutralMedium);
+  margin-bottom: 10px;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.article-subtitle h4 span {
+  font-weight: bold;
+}
+
+.main-article p {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.other-projects h2 {
+  text-align: left;
+  margin-left: 40px;
+}
+
+.contact-form,
+.contact-form h1,
+.contact-form label {
+  background-color: white;
+}
+
+.contact-form {
+  max-width: 80%;
+  margin: 40px auto;
+  padding-top: 20px;
+}
+
+.contact-form h1 {
+  margin: 40px auto;
+}
+
+.contact-form form label,
+.contact-form form input,
+.contact-form form textarea {
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  border: none;
+  font-size: 20px;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+  background-color: var(--neutralLight);
+}
+
+.contact-form form textarea {
+  padding: 50px 0;
+}
+
+.contact-form input[type="submit"] {
+  margin-top: 20px;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
 @media (min-width: 768px) {
   .circle {
     display: inline;
@@ -389,9 +482,13 @@ li a:hover {
   .nav-bar {
     display: flex;
     justify-content: space-between;
-    max-width: 70%;
     align-items: center;
+    max-width: 80%;
     margin: 20px auto;
+  }
+
+  .nav-bar a {
+    margin: 0;
   }
 
   .nav-bar ul {
@@ -483,18 +580,50 @@ li a:hover {
     margin-bottom: 20px;
   }
 
-  .footer p,
-  .footer a {
-    color: var(--neutralMedium);
-    font-weight: normal;
+  .main-article {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .article-subtitle {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .contact-form {
+      margin: 20px auto;
+  }
+
+  .contact-form h1 {
+      margin: 20px auto;
+  }
+
+  .contact-form input[type="submit"] {
+      width: 200px;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+  }
+
+  .form-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-email,
+  .form-phone {
+    width: 50%;
   }
 }
 
 @media (min-width: 992px) {
   .nav-bar {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
+    gap: 60px;
   }
 
   h1 {
@@ -502,7 +631,7 @@ li a:hover {
   }
 
   .hero h3 {
-      font-size: 24px;
+    font-size: 24px;
   }
 
   .client {
@@ -543,5 +672,32 @@ li a:hover {
 
   .services-container {
     max-width: 1200px;
+  }
+
+  .main-article {
+    max-width: 1200px;
+    margin-left: 20px;
+  }
+
+  .other-projects .project {
+    display: block;
+  }
+
+  .project-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+  }
+
+  .other-projects h2 {
+    text-align: center;
+    margin-left: 0;
+  }
+  .other-projects .project-desc {
+    width: 200px;
+  }
+
+  .other-projects .project-desc img {
+    height: 120px;
   }
 }
