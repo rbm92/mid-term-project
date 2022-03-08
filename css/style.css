@@ -12,6 +12,7 @@
   --neutralMedium: #6b708d;
   --neutralDark: #292e47;
   --wrong: #b33a3a;
+  --right: #28a428;
   --white: #fff;
   --black: #000;
 }
@@ -248,11 +249,6 @@ li a:hover {
   box-shadow: 10px 5px 5px var(--neutralMedium);
 }
 
-.project-desc a:hover {
-  text-decoration: underline;
-  text-underline-offset: 5px;
-}
-
 .project-text {
   background-color: white;
 }
@@ -391,11 +387,6 @@ li a:hover {
   background-color: var(--white);
   text-align: left;
   padding: 10px;
-}
-
-.services-card a:hover {
-  text-decoration: underline;
-  text-underline-offset: 5px;
 }
 
 .services-card {
@@ -575,6 +566,20 @@ li a:hover {
   font-weight: bold;
 }
 
+.validation {
+  padding: 10px;
+  background-color: var(--white);
+  font-size: 14px;
+}
+
+.wrong {
+  color: var(--wrong);
+}
+
+.right {
+  color: var(--right);
+}
+
 /* --- TABLET ADJUSTMENTS --- */
 
 @media (min-width: 768px) {
@@ -585,10 +590,13 @@ li a:hover {
 
   .nav-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 20px auto;
-    max-width: 80%;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 10;
   }
 
   .nav-bar a {
@@ -606,7 +614,7 @@ li a:hover {
   }
 
   ul.contact {
-   display: inline-block;
+    display: inline-block;
   }
 
   .content {
@@ -623,6 +631,12 @@ li a:hover {
 
   .client {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .project-wrap {
+    margin: 0;
+    padding: 0;
+    background-color: var(--neutralLight);
   }
 
   .recent-projects {
@@ -743,9 +757,7 @@ li a:hover {
   }
 
   .validation-message {
-    color: var(--wrong);
-    padding: 10px;
-    background-color: var(--white);
+    font-size: 18px;
   }
 }
 
@@ -753,9 +765,6 @@ li a:hover {
 
 @media (min-width: 992px) {
   .nav-bar {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
     gap: 60px;
   }
 
