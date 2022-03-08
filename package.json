@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/rbm92/mid-term-project/issues"
   },
-  "homepage": "https://github.com/rbm92/mid-term-project#readme"
+  "homepage": "https://github.com/rbm92/mid-term-project#readme",
+  "dependencies": {
+    "node-fetch": "^3.2.2"
+  }
 }
