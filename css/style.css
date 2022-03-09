@@ -203,10 +203,9 @@ li a:hover {
 }
 
 .client {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
-  row-gap: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 40px;
 }
 
 .img-client {
@@ -242,6 +241,7 @@ li a:hover {
   width: 80%;
   margin: 20px auto;
   padding-bottom: 10px;
+  /* background-color: inherit; */
 }
 
 .project-desc:hover,
@@ -257,6 +257,11 @@ li a:hover {
 .project-desc p,
 .project-desc a {
   margin: 10px 0;
+}
+
+.project-desc h4,
+.project-desc p,
+.project-desc .learn-more {
   padding-left: 10px;
 }
 
@@ -269,7 +274,7 @@ li a:hover {
 }
 
 .project-desc img {
-  display: block;
+  display: inline;
   width: 100%;
   height: 200px;
 }
@@ -287,6 +292,7 @@ li a:hover {
   background-repeat: no-repeat;
   position: relative;
   padding: 20px 0;
+  margin-top: 40px;
 }
 
 .memojis {
@@ -412,6 +418,7 @@ li a:hover {
 
 .cta {
   padding: 40px 20px;
+  margin-top: 40px;
 }
 
 .cta h2 {
@@ -566,6 +573,10 @@ li a:hover {
   font-weight: bold;
 }
 
+.contact-validation {
+  margin-top: 20px;
+}
+
 .validation {
   padding: 10px;
   background-color: var(--white);
@@ -630,6 +641,7 @@ li a:hover {
   }
 
   .client {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -648,13 +660,17 @@ li a:hover {
     margin: 50px 0 0 30px;
   }
 
+  .project-desc {
+    width: 40%;
+  }
+
   .project {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-flow: row wrap;
   }
 
   .testimonial {
-    margin: 0 auto;
+    margin: 30px auto;
   }
 
   .testim-text h3 {
@@ -684,7 +700,8 @@ li a:hover {
   }
 
   .cta {
-    margin: 0 auto;
+    margin: 40px auto;
+    -top: 40px;
   }
 
   .cta form {
@@ -831,7 +848,6 @@ li a:hover {
   .project-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    align-items: center;
   }
 
   .other-projects h2 {

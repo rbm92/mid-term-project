@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/rbm92/mid-term-project#readme",
   "dependencies": {
+    "emailjs-com": "^3.2.0",
     "node-fetch": "^3.2.2"
   }
 }

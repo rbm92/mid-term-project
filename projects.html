@@ -13,7 +13,11 @@
     <nav class="nav-bar">
         <a href="index.html"><img class="circle" title="Return to home" src="img/logos/circle.svg"
                 alt="logo circle"></a>
-                <svg onclick="hambMenu()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+        <svg onclick="hambMenu()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z" />
+        </svg>
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a class="selected" href="projects.html">Projects</a></li>
@@ -26,13 +30,14 @@
 
     <div class="project-content">
         <section class="main-article">
-            <h1>Simplify</h1>
+            <h1 class="article-title">Simplify</h1>
             <div class="article-subtitle">
-                <h4>UI Design & App Development</h4>
+                <h4 class="article-category">UI Design & App Development</h4>
                 <h4><span>Completed on</span> June 22, 2021</h4>
             </div>
-            <img loading="lazy" src="img/projects/1.jpg" alt="project 1">
-            <p class="project-text">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit
+            <img class="article-img" loading="lazy" src="img/projects/1.jpg" alt="project 1">
+            <p class="project-text">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur
+                duis deserunt mollit
                 dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate
                 aute
                 id deserunt nisi. Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur
@@ -43,57 +48,36 @@
                 quix
                 duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.
                 Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.</p>
-
-            <p class="project-text">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit
-                dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate
-                aute
-                id deserunt nisi.Aliqua id fugiat nostrud irure ex duis ea quis id quis ad e dolore cillum minim tempor
-                enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisis ea
-                quis
-                id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute
-                irure
-                tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.Aliqua id fugiat nostrud
-                irure
-                ex duis ea quis id quis ad e dolore cillum minim tempor enim. Elit aute irure tempor cupidatat
-                incididunt
-                sint deserunt ut voluptate aute id deserunt nis cillum minim tempor enim. </p>
-
-            <p class="project-text">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit
-                dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate
-                aute
-                id deserunt nisi.Aliqua id fugiat nostrud irure ex duis ea quis id quis ad e dolore cillum minim tempor
-                enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisis ea
-                quis
-                id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute
-                irure
-                tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.Aliqua id fugiat nostrud
-                irure
-                ex duis ea quis id quis ad e dolore cillum minim tempor enim. Elit aute irure tempor cupidatat
-                incididunt
-                sint deserunt ut voluptate aute id deserunt nis cillum minim tempor enim. </p>
         </section>
 
         <section class="other-projects">
             <h2>Other Projects</h2>
             <div class="project">
+                <a class="project-wrap-other" href="projects.html?1">
+                    <div class="project-desc">
+                        <img loading="lazy" class="img-project" src="img/projects/4.jpg"
+                            alt="project 4">
+                        <h4 class="project-title">Orbit (static)</h4>
+                        <p class="project-description">UI Design (static)</p>
+                        <a href="#" class="learn-more">Learn More</a>
+                    </div>
+                </a>
+                <a class="project-wrap-other" href="projects.html?2">
                 <div class="project-desc">
-                    <img loading="lazy" class="img-project other-img-project" src="img/projects/4.jpg" alt="project 4">
-                    <h4 class="other-project-title">Orbit (static)</h4>
-                    <p class="other-project-description">UI Design (static)</p>
+                    <img loading="lazy" class="img-project" src="img/projects/5.jpg" alt="project 5">
+                    <h4 class="project-title">Purify (static)</h4>
+                    <p class="project-description">UX/UI Design (static)</p>
                     <a href="#" class="learn-more">Learn More</a>
                 </div>
+            </a>
+            <a class="project-wrap-other" href="projects.html?3">
                 <div class="project-desc">
-                    <img loading="lazy" class="img-project other-img-project" src="img/projects/5.jpg" alt="project 5">
-                    <h4 class="other-project-title">Purify (static)</h4>
-                    <p class="other-project-description">UX/UI Design (static)</p>
+                    <img loading="lazy" class="img-project" src="img/projects/6.jpg" alt="project 6">
+                    <h4 class="project-title">CryptoPie (static)</h4>
+                    <p class="project-description">App Development (static)</p>
                     <a href="#" class="learn-more">Learn More</a>
                 </div>
-                <div class="project-desc">
-                    <img loading="lazy" class="img-project other-img-project" src="img/projects/6.jpg" alt="project 6">
-                    <h4 class="other-project-title">CryptoPie (static)</h4>
-                    <p class="other-project-description">App Development (static)</p>
-                    <a href="#" class="learn-more">Learn More</a>
-                </div>
+            </a>
             </div>
         </section>
     </div>

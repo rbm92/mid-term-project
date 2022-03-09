@@ -134,7 +134,7 @@ async function saveData(event) {
 
 
     divValidation.innerHTML += `<p class="validation right">Your contact details were sent succesfully</p>`;
-    return false;
+    return true;
 }
 
 form.addEventListener('submit', saveData);
