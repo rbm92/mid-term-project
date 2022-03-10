@@ -16,7 +16,7 @@ Ironhack Barcelona
 https://rbm-circle-agency.netlify.app/
 
 ## Presentation link
-https://docs.google.com/presentation/d/1_TrDegnoSw1iP2lGD39sdUhFfGjGhxqANp38wKDIuts/edit#slide=id.p
+https://docs.google.com/presentation/d/1_TrDegnoSw1iP2lGD39sdUhFfGjGhxqANp38wKDIuts/edit?usp=sharing
 
 ## Project database link
 https://marketplace.freelancewebdesign.online/wp-json/wp/v2/projects
