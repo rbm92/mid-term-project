@@ -8,7 +8,7 @@ function hambMenu() {
 
 
 // Fetching Projects
-let fetchUrlProj = "http://localhost:8000/projects";
+let fetchUrlProj = "https://marketplace.freelancewebdesign.online/wp-json/wp/v2/projects"; // http://localhost:8000/projects
 
 let projectImg = document.querySelectorAll('.img-project'); // extra data added to db.json
 let projectTitle = document.querySelectorAll('.project-title');
@@ -20,9 +20,9 @@ async function fetchProj() {
         .then(response => response.json())
         .then(data => {
             for (let i = 0; i < data.length; i++) {
-                projectImg[i].setAttribute('src', data[i].img); // extra data added to db.json
-                projectTitle[i].innerText = data[i].title;
-                projectDesc[i].innerText = data[i].description;
+                projectImg[i].setAttribute('src', data[i].better_featured_image.source_url); // data[i].img
+                projectTitle[i].innerText = data[i].title.rendered; // data[i].title
+                projectDesc[i].innerText = data[i].acf.description; // data[i].description
             }
         })
         .catch(err => console.log(err));
@@ -33,14 +33,19 @@ fetchProj();
 
 // --------- MAKING PROJECT PAGE DYNAMIC ---------
 let projWrap = document.querySelectorAll('.project-wrap');
-let projWrapOther = document.querySelectorAll('.project-wrap-other');
-console.log(projWrapOther);
+// let projWrapOther = document.querySelectorAll('.project-wrap-other');
+// console.log(projWrapOther);
 
 async function addEndpoint() {
-    for (let i = 0; i < projWrap.length; i++) {
-        projWrap[i].setAttribute('href', 'projects.html?' + (i + 1)); // adding '?...'
-        // projWrapOther[i].setAttribute('href', 'projects.html?' + (i + 1)); // adding '?...'
-    }
+    await fetch(fetchUrlProj)
+        .then(response => response.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                projWrap[i].setAttribute('href', 'projects.html?' + data[i].id); // adding '?...'
+                // projWrapOther[i].setAttribute('href', 'projects.html?' + (i + 1)); // adding '?...'
+            }
+        })
+        .catch(err => console.log(err));
 }
 
 addEndpoint();
@@ -50,6 +55,7 @@ let projNum = window.location.search.split('?')[1]; // id number is printed
 
 let articleTitle = document.querySelector('.article-title');
 let articleCategory = document.querySelector('.article-category');
+let articleDate = document.querySelector('.article-date');
 let articleImg = document.querySelector('.article-img');
 let projectText = document.querySelector('.project-text');
 
@@ -59,10 +65,12 @@ async function dynamicProjectPage() {
         .then(data => {
             for (let i = 0; i < data.length; i++) {
                 if (projNum == data[i].id) {
-                    articleTitle.innerText = data[i].title;
-                    articleCategory.innerText = data[i].description;
-                    articleImg.setAttribute('src', data[i].img);
-                    projectText.innerText = data[i].content;
+                    articleTitle.innerText = data[i].title.rendered; // data[i].title
+                    articleCategory.innerText = data[i].acf.description; // data[i].description
+                    articleDate.innerHTML = data[i].date.split('T')[0]; // data[i].
+                    // articleDate.innerHTML.
+                    articleImg.setAttribute('src', data[i].better_featured_image.source_url); // data[i].img
+                    projectText.innerHTML = data[i].content.rendered; // data[i].content
                 }
             }
         })
