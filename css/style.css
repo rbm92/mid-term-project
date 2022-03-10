@@ -283,6 +283,10 @@ li a:hover {
   color: var(--primary);
 }
 
+.learn-more:hover {
+  cursor: pointer;
+}
+
 /* --- TESTIMONIAL SECTION --- */
 
 .testimonial {

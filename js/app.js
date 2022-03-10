@@ -4,82 +4,72 @@ function hambMenu() {
     navMenu.classList.toggle('nav-hidden');
 }
 
+// hambMenu() is called as an 'onclick' event (index.html, line 16)
+
+
 // Fetching Projects
 let fetchUrlProj = "http://localhost:8000/projects";
-let fetchUrlOtherProj = "http://localhost:8000/other-projects";
+
+let projectImg = document.querySelectorAll('.img-project'); // extra data added to db.json
+let projectTitle = document.querySelectorAll('.project-title');
+let projectDesc = document.querySelectorAll('.project-description');
+
 
 async function fetchProj() {
-    let projectImg = document.querySelectorAll('.img-project');
-    for (let i = 0; i < projectImg.length; i++) {
-        fetch(fetchUrlProj)
-            .then(response => response.json())
-            .then(data => projectImg[i].setAttribute('src', data[i].img))
-            .catch(err => console.log(err));
-    }
-
-    let projectTitle = document.querySelectorAll('.project-title');
-    for (let i = 0; i < projectTitle.length; i++) {
-        fetch(fetchUrlProj)
-            .then(response => response.json())
-            .then(data => projectTitle[i].innerText = data[i].title)
-            .catch(err => console.log(err));
-    }
-
-    let projectDesc = document.querySelectorAll('.project-description');
-    for (let i = 0; i < projectDesc.length; i++) {
-        fetch(fetchUrlProj)
-            .then(response => response.json())
-            .then(data => projectDesc[i].innerText = data[i].description)
-            .catch(err => console.log(err));
-    }
-
-    let projectCont = document.querySelectorAll('.project-text');
-    for (let i = 0; i < projectCont.length; i++) {
-        fetch(fetchUrlProj)
-            .then(response => response.json())
-            .then(data => projectCont[i].innerText = data[i].content)
-            .catch(err => console.log(err));
-    }
+    await fetch(fetchUrlProj)
+        .then(response => response.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                projectImg[i].setAttribute('src', data[i].img); // extra data added to db.json
+                projectTitle[i].innerText = data[i].title;
+                projectDesc[i].innerText = data[i].description;
+            }
+        })
+        .catch(err => console.log(err));
 }
 
 fetchProj();
 
-// Fetching related projects
-async function fetchOtherProj() {
-    let projectImg = document.querySelectorAll('.img-project');
-    for (let i = 0; i < projectImg.length; i++) {
-        fetch(fetchUrlOtherProj)
-            .then(response => response.json())
-            .then(data => projectImg[i].setAttribute('src', data[i].img))
-            .catch(err => console.log(err));
-    }
 
-    let projectTitle = document.querySelectorAll('.other-project-title');
-    for (let i = 0; i < projectTitle.length; i++) {
-        fetch(fetchUrlOtherProj)
-            .then(response => response.json())
-            .then(data => projectTitle[i].innerText = data[i].title)
-            .catch(err => console.log(err));
-    }
+// --------- MAKING PROJECT PAGE DYNAMIC ---------
+let projWrap = document.querySelectorAll('.project-wrap');
+let projWrapOther = document.querySelectorAll('.project-wrap-other');
+console.log(projWrapOther);
 
-    let projectDesc = document.querySelectorAll('.other-project-description');
-    for (let i = 0; i < projectDesc.length; i++) {
-        fetch(fetchUrlOtherProj)
-            .then(response => response.json())
-            .then(data => projectDesc[i].innerText = data[i].description)
-            .catch(err => console.log(err));
-    }
-
-    let projectCont = document.querySelectorAll('.other-project-text');
-    for (let i = 0; i < projectCont.length; i++) {
-        fetch(fetchUrlOtherProj)
-            .then(response => response.json())
-            .then(data => projectCont[i].innerText = data[i].content)
-            .catch(err => console.log(err));
+async function addEndpoint() {
+    for (let i = 0; i < projWrap.length; i++) {
+        projWrap[i].setAttribute('href', 'projects.html?' + (i + 1)); // adding '?...'
+        // projWrapOther[i].setAttribute('href', 'projects.html?' + (i + 1)); // adding '?...'
     }
 }
 
-fetchOtherProj();
+addEndpoint();
+
+let projNum = window.location.search.split('?')[1]; // id number is printed
+// console.log(projNum); // id number is printed
+
+let articleTitle = document.querySelector('.article-title');
+let articleCategory = document.querySelector('.article-category');
+let articleImg = document.querySelector('.article-img');
+let projectText = document.querySelector('.project-text');
+
+async function dynamicProjectPage() {
+    await fetch(fetchUrlProj)
+        .then(response => response.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                if (projNum == data[i].id) {
+                    articleTitle.innerText = data[i].title;
+                    articleCategory.innerText = data[i].description;
+                    articleImg.setAttribute('src', data[i].img);
+                    projectText.innerText = data[i].content;
+                }
+            }
+        })
+        .catch(err => console.log(err));
+}
+
+dynamicProjectPage();
 
 // Contact Form Validation
 let form = document.querySelector('.form-contact-form');
@@ -123,7 +113,7 @@ async function saveData(event) {
     if (!validation) return; // no guardar los datos
 
     // Saving Contact Form Data
-    fetch(fetchUrlForm, {
+    await fetch(fetchUrlForm, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -132,24 +122,8 @@ async function saveData(event) {
     })
         .then(results => results.json());
 
-
     divValidation.innerHTML += `<p class="validation right">Your contact details were sent succesfully</p>`;
-    return true;
+    return;
 }
 
 form.addEventListener('submit', saveData);
-
-// Fetching Projects
-
-function projPage() {
-    let projectWrap = document.querySelectorAll('.project-wrap');
-    for (let i = 0; i < projectWrap.length; i++) {
-        fetchProjPage = `http://localhost:8000/projects/{i}`;
-        fetch(fetchProjPage)
-            .then(response => response.json())
-            .then(data => projectWrap[i].setAttribute('href', data[i].id))
-            .catch(err => console.log(err));
-    }
-}
-
-addEventListener('onclick', projPage);
